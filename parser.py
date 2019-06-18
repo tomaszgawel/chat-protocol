@@ -36,4 +36,11 @@ class EventParser:
 
             return parsed_object
 
+        elif object_props['event_type'] == event_types.ONLINE_REQUEST:
+
+            parsed_object = namedtuple(
+                "OnlineEvent", object_props.keys())(*object_props.values())
+
+            return parsed_object
+
         return None

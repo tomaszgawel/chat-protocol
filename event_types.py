@@ -1,8 +1,10 @@
 import time
+from datetime import datetime
 
 LOGIN_REQUEST = 'LOGIN_REQUEST'
 BASE = 'BASE'
 MESSAGE_REQUEST = 'MESSAGE_REQUEST'
+ONLINE_REQUEST = 'ONLINE_REQUEST'
 
 
 class BaseRequest:
@@ -27,6 +29,9 @@ class BaseRequest:
 
         return return_string
 
+    def timestamp_to_datetime(self):
+        return datetime.fromtimestamp(self.timestamp)
+
 
 class LoginRequest(BaseRequest):
 
@@ -41,6 +46,22 @@ class MessageRequest(BaseRequest):
         BaseRequest.__init__(self, login)
         self.event_type = MESSAGE_REQUEST
         self.message = message
+
+
+class OnlineRequest(BaseRequest):
+    def __init__(self):
+        BaseRequest.__init__(self, "SERVER")
+        self.event_type = ONLINE_REQUEST
+        self.online_users = []
+
+    def add_user(self, username):
+        self.online_users.append(username)
+
+    def new_online_users_list(self, online_users):
+        self.online_users = online_users
+
+
+
 
 
 
