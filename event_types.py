@@ -2,6 +2,7 @@ import time
 
 LOGIN_REQUEST = 'LOGIN_REQUEST'
 BASE = 'BASE'
+MESSAGE_REQUEST = 'MESSAGE_REQUEST'
 
 
 class BaseRequest:
@@ -32,3 +33,14 @@ class LoginRequest(BaseRequest):
     def __init__(self, login):
         BaseRequest.__init__(self, login)
         self.event_type = LOGIN_REQUEST
+
+
+class MessageRequest(BaseRequest):
+
+    def __init__(self, login, message):
+        BaseRequest.__init__(self, login)
+        self.event_type = MESSAGE_REQUEST
+        self.message = message
+
+
+

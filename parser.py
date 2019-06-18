@@ -2,7 +2,7 @@ import event_types
 from collections import namedtuple
 
 
-class EventParser():
+class EventParser:
 
     def parse_string_to_event(self, event_string):
 
@@ -26,6 +26,13 @@ class EventParser():
 
             parsed_object = namedtuple(
                 "LoginEvent", object_props.keys())(*object_props.values())
+
+            return parsed_object
+
+        elif object_props['event_type'] == event_types.MESSAGE_REQUEST:
+
+            parsed_object = namedtuple(
+                "MessageEvent", object_props.keys())(*object_props.values())
 
             return parsed_object
 
