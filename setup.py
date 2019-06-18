@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='chat-protocol',
+    name='chat_protocol',
     version='',
     packages=[''],
     url='',
