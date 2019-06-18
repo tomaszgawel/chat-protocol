@@ -26,18 +26,18 @@ class TestStringMethods(unittest.TestCase):
 
     def test_login_1(self):
         string_x = x.convert_to_string()
-        
+
         self.assertTrue('login:test' in string_x)
 
     def test_login_2(self):
         string_y = y.convert_to_string()
-        
+
         self.assertTrue('login:test2' in string_y)
-        
+
     def test_login_not_in(self):
-            string_x = x.convert_to_string()
-        
-            self.assertTrue(not 'login:test2' in string_x)
+        string_x = x.convert_to_string()
+
+        self.assertTrue(not 'login:test2' in string_x)
 
 
 if __name__ == '__main__':

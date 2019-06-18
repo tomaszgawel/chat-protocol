@@ -18,14 +18,14 @@ class EventParser():
 
         if object_props['event_type'] == event_types.BASE:
             parsed_object = namedtuple(
-                "BaseRequest", object_props.keys())(*object_props.values())
+                "BaseEvent", object_props.keys())(*object_props.values())
 
             return parsed_object
 
         elif object_props['event_type'] == event_types.LOGIN_REQUEST:
 
             parsed_object = namedtuple(
-                "LoginRequest", object_props.keys())(*object_props.values())
+                "LoginEvent", object_props.keys())(*object_props.values())
 
             return parsed_object
 
