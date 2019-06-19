@@ -19,7 +19,12 @@ class TestParserMethods(unittest.TestCase):
     def test_if_object_is_login_request(self):
         parsed_object = self.pr.parse_string_to_event(self.y.convert_to_string())
         self.assertEquals(parsed_object.event_type, event_types.LOGIN_REQUEST, msg=None)
-        
+
+    def test_if_get_full_length_is_valid_login(self):
+        self.assertEqual(21, parser.get_full_length("length:10$$login:user"))
+
+    def test_if_get_full_length_is_valid_msg(self):
+        self.assertEqual(113, parser.get_full_length("length:101$$event_type:msg$$login:user$"))
         
          
 if __name__ == '__main__':
