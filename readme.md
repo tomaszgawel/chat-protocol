@@ -4,7 +4,7 @@
     python -m unittest discover -s .
  ``` 
  
-# Instaling with pip
+# Installing with pip
 
 ```
 pip install https://github.com/tomaszgawel/chat-protocol/archive/RELEASE_NUMBER.tar.gz
