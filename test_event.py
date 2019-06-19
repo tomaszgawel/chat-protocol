@@ -1,5 +1,5 @@
 import event_types
-import parser
+import event_parser
 import unittest
 
 
@@ -11,7 +11,7 @@ x = event_types.BaseRequest('test')
 
 y = event_types.LoginRequest('test2')
 
-pr = parser.EventParser()
+pr = event_parser.EventParser()
 
 ret_obj = pr.parse_string_to_event(y.convert_to_string())
 

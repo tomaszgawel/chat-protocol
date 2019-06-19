@@ -1,13 +1,13 @@
 import unittest
 import event_types
-import parser
+import event_parser
 
 
 class TestParserMethods(unittest.TestCase):
     x = event_types.BaseRequest('test')
     y = event_types.LoginRequest('test2')
     
-    pr = parser.EventParser()
+    pr = event_parser.EventParser()
 
     def test_if_object_is_base_type(self):
 
@@ -21,10 +21,10 @@ class TestParserMethods(unittest.TestCase):
         self.assertEquals(parsed_object.event_type, event_types.LOGIN_REQUEST, msg=None)
 
     def test_if_get_full_length_is_valid_login(self):
-        self.assertEqual(21, parser.get_full_length("length:10$$login:user"))
+        self.assertEqual(21, event_parser.get_full_length("length:10$$login:user"))
 
     def test_if_get_full_length_is_valid_msg(self):
-        self.assertEqual(113, parser.get_full_length("length:101$$event_type:msg$$login:user$"))
+        self.assertEqual(113, event_parser.get_full_length("length:101$$event_type:msg$$login:user$"))
         
          
 if __name__ == '__main__':
