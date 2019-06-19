@@ -44,3 +44,9 @@ class EventParser:
             return parsed_object
 
         return None
+
+
+def get_full_length(data):
+    length = int(data.split('$$')[0].split(":")[1])
+    # adding extra values for "length:<value>$$"
+    return length + 9 + len(str(length))
