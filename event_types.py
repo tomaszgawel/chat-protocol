@@ -5,7 +5,11 @@ LOGIN_REQUEST = 'LOGIN_REQUEST'
 BASE = 'BASE'
 MESSAGE_REQUEST = 'MESSAGE_REQUEST'
 ONLINE_REQUEST = 'ONLINE_REQUEST'
+LOGIN_RESPONSE = 'LOGIN_RESPONSE'
 
+CODE_ACCEPT = "dawaj mordo"
+CODE_REJECT = "to jest kartofel"
+CODE_ERROR = "Mateuszu nie kombinuj"
 
 class BaseRequest:
 
@@ -59,6 +63,13 @@ class OnlineRequest(BaseRequest):
 
     def new_online_users_list(self, online_users):
         self.online_users = online_users
+
+
+class LoginResponse(BaseRequest):
+    def __init__(self, code):
+        BaseRequest.__init__(self, "SERVER")
+        self.event_type = LOGIN_RESPONSE
+        self.code = code
 
 
 
