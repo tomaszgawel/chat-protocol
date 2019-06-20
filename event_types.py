@@ -11,6 +11,7 @@ CODE_ACCEPT = "dawaj mordo"
 CODE_REJECT = "to jest kartofel"
 CODE_ERROR = "Mateuszu nie kombinuj"
 
+
 class BaseRequest:
 
     def __init__(self, login):
@@ -22,14 +23,14 @@ class BaseRequest:
         attributes_string = ''
 
         for attribute, value in self.__dict__.items():
-            attributes_string += str(attribute)+':'+str(value)+'$$'
+            attributes_string += str(attribute) + ':' + str(value) + '$$'
 
         attributes_string_len = len(attributes_string)
 
         return_string = ''
 
         return_string += 'length:' + \
-            str(attributes_string_len)+'$$'+attributes_string
+                         str(attributes_string_len) + '$$' + attributes_string
 
         return return_string
 
@@ -58,6 +59,9 @@ class OnlineRequest(BaseRequest):
         self.event_type = ONLINE_REQUEST
         self.online_users = []
 
+    def consume_list(self, user_list):
+        self.online_users = user_list
+
     def add_user(self, username):
         self.online_users.append(username)
 
@@ -70,9 +74,3 @@ class LoginResponse(BaseRequest):
         BaseRequest.__init__(self, "SERVER")
         self.event_type = LOGIN_RESPONSE
         self.code = code
-
-
-
-
-
-
