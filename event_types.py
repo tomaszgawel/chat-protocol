@@ -6,6 +6,7 @@ BASE = 'BASE'
 MESSAGE_REQUEST = 'MESSAGE_REQUEST'
 ONLINE_REQUEST = 'ONLINE_REQUEST'
 LOGIN_RESPONSE = 'LOGIN_RESPONSE'
+LOGOUT_REQUEST = 'LOGOUT_REQUEST'
 
 CODE_ACCEPT = "dawaj mordo"
 CODE_REJECT = "to jest kartofel"
@@ -74,3 +75,10 @@ class LoginResponse(BaseRequest):
         BaseRequest.__init__(self, "SERVER")
         self.event_type = LOGIN_RESPONSE
         self.code = code
+
+
+class LogoutRequest(BaseRequest):
+    def __init__(self, login, is_logged_out):
+        BaseRequest.__init__(self, login)
+        self.event_type = LOGOUT_REQUEST
+        self.is_logged_out = is_logged_out
