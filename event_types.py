@@ -80,4 +80,5 @@ class LoginResponse(BaseRequest):
 class LogoutRequest(BaseRequest):
     def __init__(self, login, is_logged_out):
         BaseRequest.__init__(self, login)
+        self.event_type = LOGOUT_REQUEST
         self.is_logged_out = is_logged_out
