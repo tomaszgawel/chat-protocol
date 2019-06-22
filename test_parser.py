@@ -25,7 +25,18 @@ class TestParserMethods(unittest.TestCase):
 
     def test_if_get_full_length_is_valid_msg(self):
         self.assertEqual(113, event_parser.get_full_length("length:101$$event_type:msg$$login:user$"))
-        
+
+    def test_if_colon_message(self):
+        event = event_parser.EventParser().parse_string_to_event(event_types.MessageRequest("login",":co:tam:").convert_to_string())
+        self.assertEqual(":co:tam:", event.message)
+
+    def test_if_colon(self):
+        event = event_parser.EventParser().parse_string_to_event(event_types.MessageRequest("login",":").convert_to_string())
+        self.assertEqual(":", event.message)
+
+    def test_two_dollars(self):
+        event = event_parser.EventParser().parse_string_to_event(event_types.MessageRequest("login", "$$").convert_to_string())
+        self.assertEqual("$$", event.message)
          
 if __name__ == '__main__':
     unittest.main()
