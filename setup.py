@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='chat_protocol',
-    version='3.0.1',
+    version='2.0.1',
     packages=['namedtuple,unittest,datetime,time'],
     url='https://github.com/tomaszgawel/chat-protocol',
     license='gpl-3.0',
