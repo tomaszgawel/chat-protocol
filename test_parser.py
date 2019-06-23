@@ -14,11 +14,11 @@ class TestParserMethods(unittest.TestCase):
         parsed_object = self.pr.parse_string_to_event(
             self.x.convert_to_string())
 
-        self.assertEquals(parsed_object.event_type, event_types.BASE, msg=None)
+        self.assertEqual(parsed_object.event_type, event_types.BASE, msg=None)
 
     def test_if_object_is_login_request(self):
         parsed_object = self.pr.parse_string_to_event(self.y.convert_to_string())
-        self.assertEquals(parsed_object.event_type, event_types.LOGIN_REQUEST, msg=None)
+        self.assertEqual(parsed_object.event_type, event_types.LOGIN_REQUEST, msg=None)
 
     def test_if_get_full_length_is_valid_login(self):
         self.assertEqual(21, event_parser.get_full_length("length:10$$login:user"))
