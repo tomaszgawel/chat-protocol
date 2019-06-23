@@ -19,7 +19,6 @@ class EventParser:
         else:
             message = str(event_string)[message_index_start + 8:-2]
             event_string = self.replace_from_index_to_index(event_string, "a", message_index_start + 8, len(event_string))
-            print(event_string)
             object_props = self.split_string(event_string)
 
         if not 'event_type' in object_props:
@@ -45,7 +44,6 @@ class EventParser:
             object_props['message'] = message
             parsed_object = namedtuple(
                 "MessageEvent", object_props.keys())(*object_props.values())
-            print(parsed_object)
             return parsed_object
 
         elif object_props['event_type'] == event_types.ONLINE_REQUEST:

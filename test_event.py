@@ -26,10 +26,6 @@ ret_obj = pr.parse_string_to_event(y.convert_to_string())
 message_obj = pr.parse_string_to_event(messageRequest.convert_to_string())
 
 
-print(ret_obj)
-print(messageRequest.convert_to_string())
-print(message_obj)
-
 
 class TestStringMethods(unittest.TestCase):
 
